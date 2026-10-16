@@ -63,8 +63,8 @@ button { font: inherit; }
 .card-orbit .float-card { top: 0; left: 50%; right: auto; bottom: auto; transform: translate(-50%, -50%); animation: orbit-counter 19s linear infinite; animation-delay: -4.75s; pointer-events: auto; }
 .card-orbit-chart .float-card { animation-duration: 27s; animation-direction: reverse; animation-delay: -13.5s; }
 .card-orbit-check .float-card { animation-duration: 23s; animation-delay: -17.25s; }
-@keyframes orbit-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
-@keyframes orbit-counter { from { rotate: 0deg; } to { rotate: -360deg; } }
+@keyframes orbit-spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes orbit-counter { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(-360deg); } }
 .core-symbol { font: 800 74px/.8 var(--font-head); letter-spacing: -8px; color: white; }
 .core-label { font-size: 8px; letter-spacing: 1.5px; color: #9fb4bf; font-weight: 700; }
 .float-card { position: absolute; display: flex; align-items: center; gap: 11px; padding: 13px 15px; background: white; border: 1px solid #edf1f3; border-radius: 11px; box-shadow: var(--shadow); }
