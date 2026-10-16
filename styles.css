@@ -57,12 +57,12 @@ button { font: inherit; }
 .orbit-two { width: 300px; height: 390px; transform: rotate(38deg); border-style: dashed; }
 .visual-core { position: relative; z-index: 2; width: 170px; height: 170px; border-radius: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: var(--navy); color: white; box-shadow: 0 24px 60px rgba(18,52,71,.22); transform: rotate(-5deg); }
 .card-orbit { position: absolute; z-index: 3; top: 50%; left: 50%; border-radius: 50%; transform: translate(-50%, -50%); transform-origin: center; pointer-events: none; }
-.card-orbit-code { width: 300px; height: 190px; animation: orbit-spin 19s linear infinite; }
-.card-orbit-chart { width: 410px; height: 245px; animation: orbit-spin 27s linear infinite reverse; }
-.card-orbit-check { width: 270px; height: 330px; animation: orbit-spin 23s linear infinite; }
-.card-orbit .float-card { top: 0; left: 50%; right: auto; bottom: auto; transform: translate(-50%, -50%); animation: orbit-counter 19s linear infinite; pointer-events: auto; }
-.card-orbit-chart .float-card { animation-duration: 27s; animation-direction: reverse; }
-.card-orbit-check .float-card { animation-duration: 23s; }
+.card-orbit-code { width: 300px; height: 190px; animation: orbit-spin 19s linear infinite; animation-delay: -4.75s; }
+.card-orbit-chart { width: 410px; height: 245px; animation: orbit-spin 27s linear infinite reverse; animation-delay: -13.5s; }
+.card-orbit-check { width: 270px; height: 330px; animation: orbit-spin 23s linear infinite; animation-delay: -17.25s; }
+.card-orbit .float-card { top: 0; left: 50%; right: auto; bottom: auto; transform: translate(-50%, -50%); animation: orbit-counter 19s linear infinite; animation-delay: -4.75s; pointer-events: auto; }
+.card-orbit-chart .float-card { animation-duration: 27s; animation-direction: reverse; animation-delay: -13.5s; }
+.card-orbit-check .float-card { animation-duration: 23s; animation-delay: -17.25s; }
 @keyframes orbit-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
 @keyframes orbit-counter { from { rotate: 0deg; } to { rotate: -360deg; } }
 .core-symbol { font: 800 74px/.8 var(--font-head); letter-spacing: -8px; color: white; }
