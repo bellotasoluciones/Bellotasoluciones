@@ -55,7 +55,16 @@ button { font: inherit; }
 .visual-orbit { position: absolute; border: 1px solid #dce9ed; border-radius: 50%; transform: rotate(-25deg); }
 .orbit-one { width: 380px; height: 245px; }
 .orbit-two { width: 300px; height: 390px; transform: rotate(38deg); border-style: dashed; }
-.visual-core { width: 170px; height: 170px; border-radius: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: var(--navy); color: white; box-shadow: 0 24px 60px rgba(18,52,71,.22); transform: rotate(-5deg); }
+.visual-core { position: relative; z-index: 2; width: 170px; height: 170px; border-radius: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: var(--navy); color: white; box-shadow: 0 24px 60px rgba(18,52,71,.22); transform: rotate(-5deg); }
+.card-orbit { position: absolute; z-index: 3; top: 50%; left: 50%; border-radius: 50%; transform: translate(-50%, -50%); transform-origin: center; pointer-events: none; }
+.card-orbit-code { width: 300px; height: 190px; animation: orbit-spin 19s linear infinite; }
+.card-orbit-chart { width: 410px; height: 245px; animation: orbit-spin 27s linear infinite reverse; }
+.card-orbit-check { width: 270px; height: 330px; animation: orbit-spin 23s linear infinite; }
+.card-orbit .float-card { top: 0; left: 50%; right: auto; bottom: auto; transform: translate(-50%, -50%); animation: orbit-counter 19s linear infinite; pointer-events: auto; }
+.card-orbit-chart .float-card { animation-duration: 27s; animation-direction: reverse; }
+.card-orbit-check .float-card { animation-duration: 23s; }
+@keyframes orbit-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes orbit-counter { from { rotate: 0deg; } to { rotate: -360deg; } }
 .core-symbol { font: 800 74px/.8 var(--font-head); letter-spacing: -8px; color: white; }
 .core-label { font-size: 8px; letter-spacing: 1.5px; color: #9fb4bf; font-weight: 700; }
 .float-card { position: absolute; display: flex; align-items: center; gap: 11px; padding: 13px 15px; background: white; border: 1px solid #edf1f3; border-radius: 11px; box-shadow: var(--shadow); }
@@ -71,7 +80,8 @@ button { font: inherit; }
 .chart-bars i { display: block; width: 4px; background: var(--teal); border-radius: 2px; height: 45%; }
 .chart-bars i:nth-child(2) { height: 70%; }.chart-bars i:nth-child(3) { height: 55%; }.chart-bars i:nth-child(4) { height: 100%; }
 .check-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: var(--teal); font-weight: 800; }
-.visual-spark { position: absolute; color: var(--teal); }.spark-a { top: 25px; right: 90px; font-size: 25px; }.spark-b { bottom: 70px; right: 45px; font-size: 20px; color: #9db2bc; }
+.visual-spark { position: absolute; color: var(--teal); transform-origin: center; }.spark-a { top: 25px; right: 90px; font-size: 25px; animation: spark-drift 8s ease-in-out infinite; }.spark-b { bottom: 70px; right: 45px; font-size: 20px; color: #9db2bc; animation: spark-drift 10s ease-in-out infinite reverse; }
+@keyframes spark-drift { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 10px -13px; rotate: 35deg; } }
 .hero-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 22px; margin-top: 32px; color: #80909a; font-size: 9px; font-weight: 800; letter-spacing: 1.7px; }
 .scroll-hint { letter-spacing: .3px; font-weight: 600; text-transform: none; font-size: 11px; }.scroll-hint span { margin-left: 8px; color: var(--teal); font-size: 17px; }
 .projects-section { background: var(--light); }
@@ -118,4 +128,5 @@ button { font: inherit; }
 @media (max-width: 390px) {
   .services-grid { grid-template-columns: 1fr; }.service-card { min-height: 170px; }.service-card h3 { font-size: 15px; }.service-card p { font-size: 11px; }.hero-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }.hero-visual { margin-inline: -20px; transform: scale(.82); }.footer-bottom { flex-direction: column; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+@media (max-width: 700px) { .card-orbit-code { width: 265px; height: 175px; }.card-orbit-chart { width: 335px; height: 220px; }.card-orbit-check { width: 235px; height: 290px; }.card-orbit .float-card { gap: 7px; padding: 9px 10px; }.card-orbit .float-card strong { font-size: 10px; }.card-orbit .float-card small { font-size: 8px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
